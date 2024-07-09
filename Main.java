@@ -5,11 +5,9 @@ public class Main {
         int maxChar = operations.getMaxChar();
         String text = operations.getValidatedText(maxChar);
         boolean isCaseSensitive = operations.getCaseSensitivity();
-        char analysChar = operations.getAnalysChar();
+        char analysChar = operations.getAnalysisChar();
 
-        System.out.println("Girdiğiniz cümle: " + text);
-        System.out.println("Büyük/küçük harf duyarlılığı: " + (isCaseSensitive ? "Aktif" : "Pasif"));
-        System.out.println("Analiz edilecek harf: " + analysChar);
+        operations.result(text, isCaseSensitive, analysChar);
 
         
     }

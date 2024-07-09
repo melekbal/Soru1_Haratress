@@ -46,16 +46,42 @@ public class Operations {
         return isCaseSensitive;
     }
 
-    public char getAnalysChar() {
+    public char getAnalysisChar() {
         do {
             System.out.print("Analiz etmek için bir harf girin: ");
-            char analysChar = scanner.nextLine().charAt(0);
-            if (Character.isLetter(analysChar)) {
-                return analysChar;
+            char analysisChar = scanner.nextLine().charAt(0);
+            if (Character.isLetter(analysisChar)) {
+                return analysisChar;
             } else {
-                System.out.println("Lütfen bir harf girin.");
+                System.out.println("Lütfen geçerli bir karakter girin.");
             }
         } while (true);
     }
-    
+
+    public void result(String text, boolean isCaseSensitive, char analysisChar) {
+        if (isCaseSensitive == false) {
+            text = text.toLowerCase();
+            analysisChar = Character.toLowerCase(analysisChar);
+
+            int count = 0;
+
+            for (int i = 0; i < text.length(); i++) {
+                if (text.charAt(i) == analysisChar) {
+                    count++;
+                }
+            }
+
+            System.out.println("Girilen cümlede " + analysisChar + " harfi toplamda " + count + " kez geçmektedir.");
+        } else {
+            int count = 0;
+
+            for (int i = 0; i < text.length(); i++) {
+                if (text.charAt(i) == analysisChar) {
+                    count++;
+                }
+            }
+
+            System.out.println("Girilen cümlede '" + analysisChar + "' harfi toplamda " + count + " kez geçmektedir.");
+        }
+    }
 }
