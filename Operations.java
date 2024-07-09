@@ -25,19 +25,37 @@ public class Operations {
         return text;
     }
 
-    public boolean getCaseSensitive() {
-        String response;
-        while (true) {
-            System.out.print("Büyük/küçük harf duyarlılığı aktif olsun mu? (Evet/Hayır): ");
-            response = scanner.nextLine().trim().toLowerCase();
+    public boolean getCaseSensitivity() {
+        boolean isCaseSensitive;
+        do {
+            System.out.print("Büyük/küçük harf duyarlılığı aktif olsun mu? (E/H): ");
+            String response = scanner.nextLine().trim();
 
-            if (response.equals("Evet")) {
-                return true;
-            } else if (response.equals("Hayır")) {
-                return false;
+            if (response.equals("E")) {
+                isCaseSensitive = true;
+                break;
+            }
+            if (response.equals("H")) {
+                isCaseSensitive = false;
+                break;
             } else {
                 System.out.println("Lütfen geçerli bir cevap giriniz.");
             }
-        }
+        } while (true);
+
+        return isCaseSensitive;
     }
+
+    public char getAnalysChar() {
+        do {
+            System.out.print("Analiz etmek için bir harf girin: ");
+            char analysChar = scanner.nextLine().charAt(0);
+            if (Character.isLetter(analysChar)) {
+                return analysChar;
+            } else {
+                System.out.println("Lütfen bir harf girin.");
+            }
+        } while (true);
+    }
+    
 }
