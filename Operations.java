@@ -24,4 +24,20 @@ public class Operations {
 
         return text;
     }
+
+    public boolean getCaseSensitive() {
+        String response;
+        while (true) {
+            System.out.print("Büyük/küçük harf duyarlılığı aktif olsun mu? (Evet/Hayır): ");
+            response = scanner.nextLine().trim().toLowerCase();
+
+            if (response.equals("Evet")) {
+                return true;
+            } else if (response.equals("Hayır")) {
+                return false;
+            } else {
+                System.out.println("Lütfen geçerli bir cevap giriniz.");
+            }
+        }
+    }
 }
